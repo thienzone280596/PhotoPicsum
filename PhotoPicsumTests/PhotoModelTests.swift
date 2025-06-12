@@ -28,16 +28,17 @@ final class PhotoModelTests: XCTestCase {
     }
   }
 
+  
   func testPhotoModelDecoding() throws {
     let jsonData = """
           [
              {
-                 "id": "0",
-                 "author": "Alejandro Escamilla",
-                 "width": 5000,
-                 "height": 3333,
-                 "url": "https://unsplash.com/photos/yC-Yzbqy7PY",
-                 "download_url": "https://picsum.photos/id/0/5000/3333"
+               "id": "21",
+               "author": "Alejandro Escamilla",
+               "width": 3008,
+               "height": 2008,
+               "url": "https://unsplash.com/photos/jVb0mSn0LbE",
+               "download_url": "https://picsum.photos/id/21/3008/2008"
              }
           ]
           """.data(using: .utf8)!
@@ -45,12 +46,12 @@ final class PhotoModelTests: XCTestCase {
     do {
       let photos = try JSONDecoder().decode([PhotoEntity].self, from: jsonData)
       XCTAssertEqual(photos.count, 1)
-      XCTAssertEqual(photos[0].id, "0")
+      XCTAssertEqual(photos[0].id, "21")
       XCTAssertEqual(photos[0].author, "Alejandro Escamilla")
-      XCTAssertEqual(photos[0].width, 5000)
-      XCTAssertEqual(photos[0].height, 3333)
-      XCTAssertEqual(photos[0].url, "https://unsplash.com/photos/yC-Yzbqy7PY")
-      XCTAssertEqual(photos[0].download_url, "https://picsum.photos/id/0/5000/3333")
+      XCTAssertEqual(photos[0].width, 3008)
+      XCTAssertEqual(photos[0].height, 2008)
+      XCTAssertEqual(photos[0].url, "https://unsplash.com/photos/jVb0mSn0LbE")
+      XCTAssertEqual(photos[0].download_url, "https://picsum.photos/id/21/3008/2008")
     } catch {
       XCTFail("Decoding error: \(error)")
     }
@@ -62,9 +63,10 @@ final class PhotoModelTests: XCTestCase {
           {
               "identifier": "0",
               "creator": "Unknown",
-              "size": "5000x3333",
-              "link": "https://unsplash.com/photos/test",
-              "image": "https://picsum.photos/id/0/5000/3333"
+              "width": 3008,
+              "height": 2008,
+              "link": "https://unsplash.com/photos/jVb0mSn0LbE",
+              "image": "https://picsum.photos/id/21/3008/2008"
           }
       ]
       """.data(using: .utf8)!
