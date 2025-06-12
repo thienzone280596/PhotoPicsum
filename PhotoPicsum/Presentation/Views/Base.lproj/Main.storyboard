@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Photo List View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="PhotoListViewController" customModule="PhotoPicsum" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZE-iP-gSm">
+                                <rect key="frame" x="0.0" y="118" width="393" height="44"/>
+                                <items>
+                                    <navigationItem title="Photo Picsum" id="rwE-zs-Jzd"/>
+                                </items>
+                            </navigationBar>
+                            <searchBar contentMode="redraw" placeholder="Search By Author or Id" translatesAutoresizingMaskIntoConstraints="NO" id="9re-Ya-Pdm">
+                                <rect key="frame" x="0.0" y="162" width="393" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="hbo-3E-H6E"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="YXJ-4u-Oa0">
+                                <rect key="frame" x="0.0" y="218" width="393" height="566"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YXJ-4u-Oa0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="03R-Rs-hNF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YXJ-4u-Oa0" secondAttribute="bottom" id="BB5-Qf-eHJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YXJ-4u-Oa0" secondAttribute="trailing" id="Fiq-b0-mOQ"/>
+                            <constraint firstItem="9re-Ya-Pdm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="KLa-UF-fb7"/>
+                            <constraint firstItem="9re-Ya-Pdm" firstAttribute="top" secondItem="vZE-iP-gSm" secondAttribute="bottom" id="Sbd-d2-Lb6"/>
+                            <constraint firstItem="vZE-iP-gSm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="XeA-aC-1ae"/>
+                            <constraint firstItem="YXJ-4u-Oa0" firstAttribute="top" secondItem="9re-Ya-Pdm" secondAttribute="bottom" id="XpR-D2-Z0q"/>
+                            <constraint firstAttribute="trailing" secondItem="vZE-iP-gSm" secondAttribute="trailing" id="aut-0U-Zbc"/>
+                            <constraint firstItem="vZE-iP-gSm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="go3-2d-fzI"/>
+                            <constraint firstItem="9re-Ya-Pdm" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="qNT-J2-J3j"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="photoSearchBar" destination="9re-Ya-Pdm" id="S0R-ZT-hfG"/>
+                        <outlet property="tableView" destination="YXJ-4u-Oa0" id="WM7-9T-fdI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1040.4580152671756" y="-27.464788732394368"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
