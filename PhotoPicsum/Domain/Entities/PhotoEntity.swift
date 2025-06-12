@@ -16,7 +16,7 @@ struct PhotoEntity: Codable {
     let download_url: String
 
     var sizeDescription: String {
-        return "\(width)x\(height)"
+        return "Size: \(width)x\(height)"
     }
 
     var aspectRatio: CGFloat {
