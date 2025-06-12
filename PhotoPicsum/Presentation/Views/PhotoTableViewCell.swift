@@ -47,16 +47,17 @@ class PhotoTableViewCell: UITableViewCell {
   func configure(with data: PhotoEntity) {
       authorLabel.text = data.author
       imageSizeLabel.text = data.sizeDescription
-
-      /// Make sure that image fit with screen and not be distorted
-      if let constraint = (photo.constraints.first { $0.firstAttribute == .height }) {
-          constraint.isActive = false
-      }
-      let aspectRatioConstraint = photo.heightAnchor.constraint(equalTo: photo.widthAnchor, multiplier: data.aspectRatio)
-      aspectRatioConstraint.isActive = true
-
-       /// Caching Image
+    // Delete old constraint
+      aspectConstraint?.isActive = false
+    // Add new ratio constraint according to aspect ratio
+      let aspect = data.aspectRatio
+      let newConstraint = photo.heightAnchor.constraint(equalTo: photo.widthAnchor, multiplier: aspect)
+      newConstraint.priority = .required
+      newConstraint.isActive = true
+      aspectConstraint = newConstraint
+    // Load image from URL (with cache)
       self.photo.loadImageUsingCache(withUrl: data.download_url)
   }
+
 
 }
